@@ -1,0 +1,3 @@
+Put your CA.der, cert.der and private.der files in this folder.
+You can also place any custom config.json file.
+Upload it to the device using Arduino IDE / Tools/ ESP8266 Sketch Data Upload.
