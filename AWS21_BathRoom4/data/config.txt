@@ -1,0 +1,10 @@
+{ 
+"PRIMARY":0,
+"ACTLOW":0,
+"ORG":"intof",
+"GRP":"G1",
+"APP":"bath",
+"STATFREQ":5,
+"BUCKETS":6,
+"NIGHT":[6,0,6,30]
+}
