@@ -1,0 +1,14 @@
+-- drop table IotEvent;
+
+CREATE TABLE IotEvent (
+SlNo int(11) NOT NULL AUTO_INCREMENT, 
+OrgId int(11) DEFAULT 1,
+GroupId VARCHAR(32) DEFAULT NULL,
+DeviceId VARCHAR(32) DEFAULT NULL, 
+Relays VARCHAR(8)  DEFAULT NULL,
+EventCode VARCHAR(4) DEFAULT NULL,
+EventText VARCHAR (128) DEFAULT NULL,
+Timestamp datetime DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (SlNo));
+
+select * from IotEvent;
