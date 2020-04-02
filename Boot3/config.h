@@ -23,10 +23,12 @@ char  app_id [MAX_TINY_STRING_LENGTH];
 bool version_check_enabled = true;
 
 char reusable_string [MAX_LONG_STRING_LENGTH];   // holds primary and secondary .bin and .txt files etc, one at a time. REUSED !
-char firmware_primary_prefix [MAX_LONG_STRING_LENGTH];       // must end in '/'
-char firmware_secondary_prefix [MAX_LONG_STRING_LENGTH];     // must end in '/'
-char certificate_primary_prefix [MAX_LONG_STRING_LENGTH];    // must end in '/'
-char certificate_secondary_prefix [MAX_LONG_STRING_LENGTH];  // must end in '/'
+
+// The following should NOT have an ending slash '/' as it will be dynamicaly added
+char firmware_primary_prefix [MAX_LONG_STRING_LENGTH];       
+char firmware_secondary_prefix [MAX_LONG_STRING_LENGTH];      
+char certificate_primary_prefix [MAX_LONG_STRING_LENGTH];     
+char certificate_secondary_prefix [MAX_LONG_STRING_LENGTH];   
 
 // The leading slash in the following file names is necessary: 
 // they are not included in the PREFIX strings in order to simplify string manipulations
