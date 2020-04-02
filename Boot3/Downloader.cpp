@@ -17,7 +17,7 @@ int Downloader::download_files() {
     use_backup_urls = false;
     //////// HTTPClient http; <- this is wrong; never reuse a HTTPClient object for the backup server:
     int result = check_certificate_version ();  // let check_certificate_version() create its own local HTTPClient object
-    if (result != 0) { // CODE_OK               
+    if (result != CODE_OK) { //   0           
         use_backup_urls = true;
         SERIAL_PRINTLN("Primary certificate URL failed; trying backup URLs...");
         result = check_certificate_version (); // never reuse the client for a different web server !
