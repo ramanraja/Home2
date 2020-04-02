@@ -1,0 +1,8 @@
+{ 
+"CERT_VER":2,
+"APP_ID":"bootloader",
+"OTA1":"http://your-bucket.s3.us-east-2.amazonaws.com/ota",
+"OTA2":"http://192.168.0.101:8000/ota",
+"CERT1":"http://your-bucket.s3.us-east-2.amazonaws.com/cert",
+"CERT2":"http://192.168.0.101:8000/ota/cert" 
+}
