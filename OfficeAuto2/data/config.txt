@@ -1,0 +1,19 @@
+{ 
+"ORG":"myorg",
+"GRP":"Grp0",
+"APP":"myapp",
+"OTA1":"http://my-bucket.s3.us-east-2.amazonaws.com/ota2",
+"OTA2":"http://192.168.0.101:8000/ota",
+"CERT1":"http://my-bucket.s3.us-east-2.amazonaws.com/cert2",
+"CERT2":"http://192.168.0.101:8000/ota/cert", 
+"CERT_VER":2,
+"PRIMARY_REL":0,
+"ACTIVE_LOW":0,
+"RADAR_TRIG":0,
+"STAT_FREQ_MIN":6,
+"AUTO_OFF_MIN":2,
+"NIGHT_HRS":[18,30,6,15],
+"DAY_LIGHT": 800,
+"NIGHT_LIGHT":200
+}
+
