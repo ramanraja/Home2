@@ -1,0 +1,19 @@
+{ 
+"ORG":"xxx",
+"GRP":"Grp0",
+"APP":"bath",
+"OTA1":"http://xxx-bucket.s3.us-east-2.amazonaws.com/ota",
+"OTA2":"http://192.168.0.101:8000/ota",
+"CERT1":"http://xxx-bucket.s3.us-east-2.amazonaws.com/cert",
+"CERT2":"http://192.168.0.101:8000/ota/cert", 
+"CERT_VER":2,
+"PRIMARY_REL":0,
+"ACTIVE_LOW":0,
+"RADAR_TRIG":0,
+"STAT_FREQ_MIN":6,
+"AUTO_OFF_MIN":2,
+"NIGHT_HRS":[18,30,6,15],
+"DAY_LIGHT": 800,
+"NIGHT_LIGHT":200
+}
+
