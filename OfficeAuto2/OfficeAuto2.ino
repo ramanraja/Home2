@@ -37,8 +37,8 @@
    
    Transforming the certificates:
    Use OpenSSL (install it for Windows) to convert the certificates to DER format:
-   > openssl x509 -in my_thing.cert.pem    -out  cert.der    -outform  DER
-   > openssl rsa -in  my_thing.private.key -out  private.der -outform  DER
+   > openssl x509 -in portico_thing.cert.pem    -out  cert.der    -outform  DER
+   > openssl rsa -in  portico_thing.private.key -out  private.der -outform  DER
    > openssl x509 -in root-CA.crt  -out  ca.der  -outform  DER
   
    Copy the der files to a data' folder under your project and upload it to SPIFFS using tools/"ESP8266 Sketch Data Upload"
@@ -208,27 +208,7 @@ void enter_fiasco_mode(){
     hard.infinite_loop(); // *** this is an infinite loop outside main loop ***
 #endif    
 }
-/*
-// Enable movement based light control only if it is night time:
-// sets the global variable 'is_night'
-void init_day_or_night () {
-    short time_code = aws.is_night_time();  // This returns a ternary: day,night,unknown
-    if (time_code == TIME_NIGHT)  {
-        is_night = true;
-        SERIAL_PRINTLN ("Starting the app during NIGHT..");          
-    }
-    else if (time_code == TIME_DAY) {
-        is_night = false;
-        SERIAL_PRINTLN ("Starting the app during DAY..");              
-    }
-    else {
-        // if TIME_UNKNOWN, the light stays in its previous state
-        SERIAL_PRINTLN ("Starting time is UNKNOWN");  
-    }
-    // do NOT send any MQTT message from here, since pubsub client may not have been initialized    
-    // TODO: for automatic portico light controller, operate_lights() now
-}
-*/
+
 // Finds if it is day or night, and stores the status in the global variable is_night
 // In the case of automatic portico light, it also switches on/off the light
 short time_code;
@@ -283,8 +263,6 @@ void one_minute_logic() {
     }
 }
 
- 
-
 #ifndef PORTICO_VERSION
   bool occupied = false;
 #endif
@@ -295,19 +273,18 @@ void tick() {
     radar_status = hard.showRadarStatus(); 
 #ifndef PORTICO_VERSION    
     // TODO: increment hit counts (after implementing Button interface)
-    if (!(pir_status || radar_status))
+    if (!(pir_status || radar_status))  // no motion detected, nothing to do
         return;
-    if (cmd.manual_override)  
-        return;
-    if (!is_night) 
+    if ((!is_night) || cmd.manual_override)
        return;
-    leaky_bucket = MAX_BUCKETS;  // keep filling the leaky bucket
-    if (!occupied) {
-       if (pir_status && radar_status) { // switch on only if both sensors fire
+    leaky_bucket = MAX_BUCKETS;  // keep filling the leaky bucket, only during night and in auto mode
+    if (occupied)  // already the light is on, so just refill the bucket and return 
+        return;
+    if (pir_status)  // pir must mandatorily fire
+        if (C.radar_triggers && radar_status) { // switch on only if both sensors fire
             occupied = true; // is there a subtle bug here? how manual_override interacts with the occupied flag ?
             hard.primary_light_on();
-       }
-    }  
+        }
 #endif    
 }
 
