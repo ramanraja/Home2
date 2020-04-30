@@ -1,0 +1,58 @@
+{"C":"PAU"}
+{"C":"DAT"}
+
+{"S":{"P":"OTAP","V":"http://www.ssss1-otap.com/"}}
+{"G":"OTAP"}
+
+{"S":{"P":"OTAS","V":"http://www.wwww2-otas.com"}}
+{"G":"OTAS"}
+
+{"S":{"P":"CERTP", "V":"http://www.aaaa3-certp.com/"}}
+{"G":"CERTP"}
+
+{"S":{"P":"CERTS", "V":"http://www.rrrr4-certs.com"}}
+{"G":"CERTS"}
+
+{"S":{"P":"PRIREL","V":"1"}}
+{"G":"PRIREL"}
+
+{"S":{"P":"ACTL","V":"1"}}
+{"G":"ACTL"}
+
+{"S":{"P":"RTRIG","V":"0"}}
+{"G":"RTRIG"}
+ 
+
+{"G":"OTAP"}
+{"G":"OTAS"}
+{"G":"OTAPV"}
+{"G":"OTASV"}
+{"G":"CERTP"}
+{"G":"CERTS"}
+{"G":"CERTPV"}
+{"G":"CERTSV"}
+{"G":"STATF"}
+{"G":"AOFF"}
+{"G":"NHRS"}
+{"G":"LTH"}
+{"G":"XYZ"}
+
+
+--------------------------
+topic changes:
+
+{"S":{"P":"MAC", "V":"ABCD1234"}}
+{"G":"MAC"}
+{"C":"MAC"}
+
+{"S":{"P":"GRP", "V":"MyGrp"}}
+{"G":"GRP"}
+
+{"S":{"P":"ORG","V":"myOrg"}}
+{"G":"ORG"}
+
+{"S":{"P":"APP","V":"myApp"}}
+{"G":"APP"}
+
+
+{"C":"RES"}   // resume
